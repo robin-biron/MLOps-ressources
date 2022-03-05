@@ -1,15 +1,13 @@
-from doctest import testmod
-from imghdr import tests
-from re import sub
-from unittest import TestProgram
 import pandas as pd
 import random 
-
 
 file = pd.read_csv('questions.csv')
 
 database = file.to_dict()
 
+# list of objects
+test_name = list(set(database['use'].values()))
+subject_name = list(set(database['subject'].values()))
 
 def questions_selection(test, subjects, nb_questions):
 
@@ -34,3 +32,8 @@ def questions_selection(test, subjects, nb_questions):
         questions = list(dict(df.question).values())
         selection_questions = random.choices(questions, k = nb_questions )
         return selection_questions
+    
+  
+  
+        
+
