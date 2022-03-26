@@ -1,0 +1,7 @@
+### To launch the API, you must type in your terminal the following commands:
+
+# 1st Step : retrieve csv file in same folder as main.py and helpers.py
+wget https://dst-de.s3.eu-west-3.amazonaws.com/fastapi_fr/questions.csv
+
+# 2nd Step : launch API wih command:
+ uvicorn main:api --reload
