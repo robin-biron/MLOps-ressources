@@ -1,0 +1,44 @@
+#1st step : retrieve mysql_url
+- creation of docker compose :
+version: "3"
+
+services:
+  mysql:
+    image: datascientest/mysql-k8s:1.0.0
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:
+
+- run MySQL : 
+docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=secret -v $HOME/mysql-data:/var/lib/mysql -d mysql:8.0
+
+- connecting to mysql
+docker exec -it my-mysql mysql -p (using secret as password as previously defined)
+
+- select user();
+mysql> select user();
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+=> so mysql_url is 'localhost'
+
+# 2nd step : create image from main.py and push to docker hub
+
+# 3rd step : fill in different yml files
+
+# enable access to fastapi docs :
+ssh -i data_enginering_machine.pem ubuntu@34.248.167.252 -fNL 8000:192.168.49.2:80
+
+- The UI displays endpoints correctly but the request from sql database do not work for a reason I ignore
+
+
+
+

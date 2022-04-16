@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-exam-service-ingress
+spec:
+  defaultBackend:
+    service:
+      name: k8s-exam-service
+      port:
+        number: 8001

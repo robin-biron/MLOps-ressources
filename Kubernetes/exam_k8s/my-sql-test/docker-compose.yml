@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  mysql:
+    image: datascientest/mysql-k8s:1.0.0
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-exam-deployment
+  # labels:
+  #   app: k8s-exam-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-exam-api
+  template:
+    metadata:
+      labels:
+        app: k8s-exam-api
+    spec:
+      containers:
+      - name: k8s-exam-mysql
+        image:  datascientest/mysql-k8s:1.0.0
+ 
+      - name: k8s-exam-api
+        image: robinbiron/fastapi:latest
+        ports:
+        - containerPort: 8000
