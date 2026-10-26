@@ -37,6 +37,8 @@ Les historiques des deux dépôts sont conservés, sans réécriture ni squash. 
 - `archive/rains-api` : version dockerisée intégrée ici ;
 - `archive/rains-feature-robin` : variante de développement de l'API.
 
+Le tag `archive/rains-pr-1` conserve également les commits d'une ancienne pull request fermée sans fusion. Son contenu n'est pas appliqué à l'exercice intégré.
+
 Les supports et autres exercices existants restent à leur emplacement d'origine. Les caches Python générés ont été exclus de la version intégrée.
 
 ## Docker Compose
